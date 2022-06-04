@@ -1,0 +1,17 @@
+<div class="scheme">
+  <div *ngFor="let section of sections; let i = index" class="scheme__section">
+    <div class="scheme__title">Zona {{ i + 1 }}</div>
+    <div class="scheme__diagram">
+      <div *ngFor="let e of section; let i2 = index" [attr.data-mark-id]="e._groupStatus" class="scheme__diagram-cell" [class]="{
+          'mark': e._groupStatus, 
+          'scheme__cell-group-line-start': e._connectToLeft,
+          'scheme__cell-group-line-end': e._connectToRight
+        }">
+        <div>
+          <span>{{ e.sku }}</span>
+          <span class="fixed">{{ e.defaultSku }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

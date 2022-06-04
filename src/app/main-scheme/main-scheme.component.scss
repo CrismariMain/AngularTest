@@ -1,0 +1,112 @@
+$cell-spacing: 0.75rem;
+$cell-bg: #2b4e87;
+$cell-shadow-color: #223b63;
+$cell-group-line-bg: #203d74;
+
+.scheme {
+  display: block;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.scheme__section {
+  &:not(:last-child) {
+    margin-bottom: 3rem;
+  }
+}
+
+.scheme__title {
+  margin: 0.5rem 0.75rem;
+  letter-spacing: 1px;
+  color: #eaebee;
+}
+
+.scheme__diagram {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-gap: $cell-spacing;
+}
+
+.scheme__diagram-cell {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 4.5rem;
+  padding: 0 1rem;
+  border-radius: 0.25rem;
+  background-color: $cell-bg;
+  box-shadow: 0 0 3px $cell-shadow-color;
+  font-size: 1.5rem;
+
+  &.mark::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    height: 80%;
+    top: 10%;
+    width: 4px;
+    border-radius: 0 1rem 1rem 0;
+  }
+  &[data-mark-id="open"]::before {
+    background-color: #f4e700;
+  }
+  &[data-mark-id="semi"]::before {
+    background-color: #ff9800;
+  }
+  &[data-mark-id="closed"]::before {
+    background-color: #f64d25;
+  }
+
+  div::before,
+  div::after {
+    content: '';
+    position: absolute;
+    display: none;
+    top: 15%;
+    width: $cell-spacing / 2;
+    height: 70%;
+    background-color: $cell-group-line-bg;
+  }
+  &.scheme__cell-group-line-start > div::before {
+    display: block;
+    right: 100%;
+  }
+  &.scheme__cell-group-line-end > div::after {
+    display: block;
+    left: 100%;
+  }
+
+  .fixed {
+    position: absolute;
+    font-size: 0.8rem;
+    top: 0.25rem;
+    right: 0.5rem;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .scheme__diagram {
+    grid-template-columns: repeat(7, 1fr);
+  }
+}
+@media screen and (max-width: 1000px) {
+  .scheme__diagram {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+@media screen and (max-width: 800px) {
+  .scheme__diagram {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+@media screen and (max-width: 600px) {
+  .scheme__diagram {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media screen and (max-width: 400px) {
+  .scheme__diagram {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

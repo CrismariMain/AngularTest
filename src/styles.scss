@@ -1,0 +1,13 @@
+@import "~normalize.css";
+@import "./assets/fonts.scss";
+
+$body-bg-color: #19263b;
+$body-color: #fff;
+
+body {
+  background-color: $body-bg-color;
+  color: $body-color;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  padding: 1rem;
+}
