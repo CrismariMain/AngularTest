@@ -8,9 +8,9 @@ import { Cells } from './types'
   styleUrls: ['./main-scheme.component.scss']
 })
 export class MainSchemeComponent {
-  sections: Array<Cells>
-
-  constructor(svc: JsonPrepareService) {
-    this.sections = svc.getPrepared()
+  sections: Array<Cells> = []
+  
+  constructor(ctx: JsonPrepareService) {
+    this.sections = ctx.getPrepared()
   }
 }
