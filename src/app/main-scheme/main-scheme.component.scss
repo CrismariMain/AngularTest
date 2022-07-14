@@ -64,7 +64,7 @@ $cell-group-line-bg: #203d74;
     position: absolute;
     display: none;
     top: 15%;
-    width: $cell-spacing / 2;
+    width: calc($cell-spacing / 2);
     height: 70%;
     background-color: $cell-group-line-bg;
   }

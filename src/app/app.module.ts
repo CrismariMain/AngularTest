@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import Store from '../store/main'
+
 import { AppComponent } from './app.component';
 import { MainSchemeModule } from './main-scheme/main-scheme.module'
-import { MainSchemeComponent } from './main-scheme/main-scheme.component';
 
 @NgModule({
   declarations: [	
@@ -11,6 +12,7 @@ import { MainSchemeComponent } from './main-scheme/main-scheme.component';
    ],
   imports: [
     BrowserModule,
+    Store,
     MainSchemeModule
   ],
   providers: [],
